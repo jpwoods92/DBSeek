@@ -23,7 +23,7 @@ Step 2:
 
 ## Important Methods:
 
-- `Searchable#where(params)`
+- ### `Searchable#where(params)`
     -   **In a separate module, I defined a method that takes an argument in the form of a `String` or `Hash` and generates a sql querry based on those params.**
     ```
     def where(params)
@@ -44,7 +44,7 @@ Step 2:
         self.parse_all(result)
     end
   ```
-- `SQLObject::parse_all(array)`
+- ### `SQLObject::parse_all(array)`
     -   **Iterates through an array of `Hash`es returned from a query and creates new instances of SQLObject out of them**
     ```
     def self.parse_all(array)
@@ -54,7 +54,7 @@ Step 2:
     end
     ```
 
-- `SQLObject::find(id)`
+- ### `SQLObject::find(id)`
     -   **takes in an id parameter and returns a SQLObject with the given id**
     ```
     def self.find(id)
@@ -70,7 +70,7 @@ Step 2:
         self.new(result.first)
     end
     ```
-- `SQLObject#insert`
+- ### `SQLObject#insert`
     - **dynamically generates a SQL querry for inserting value into specific collumns**
     ```
     def insert
@@ -91,7 +91,7 @@ Step 2:
         send("id=", DBConnection.last_insert_row_id)
     end
     ```
-- `Associatable#belongs_to(name, options)`
+- ### `Associatable#belongs_to(name, options)`
     -   **takes in the association name argument and an options `Hash` and creates a `BelongsToOptions` object based on the arguments passed in**
     ```
     def belongs_to(name, options = {})
