@@ -24,7 +24,7 @@ Step 2:
 ## Important Methods:
 
 - `Searchable#where(params)`
-    -   In a separate module, I defined a method that takes an argument in the form of a `String` or `Hash` and generates a sql querry based on those params.
+    -   **In a separate module, I defined a method that takes an argument in the form of a `String` or `Hash` and generates a sql querry based on those params.**
     ```
     def where(params)
         if params.is_a?(Hash)
@@ -45,7 +45,7 @@ Step 2:
     end
   ```
 - `SQLObject::parse_all(array)`
-    -   Iterates through an array of `Hash`es returned from a query and creates new instances of SQLObject out of them
+    -   **Iterates through an array of `Hash`es returned from a query and creates new instances of SQLObject out of them**
     ```
     def self.parse_all(array)
         results.map do |obj|
@@ -55,7 +55,7 @@ Step 2:
     ```
 
 - `SQLObject::find(id)`
-    -   takes in an id parameter and returns a SQLObject with the given id
+    -   **takes in an id parameter and returns a SQLObject with the given id**
     ```
     def self.find(id)
         result = DBConnection.execute(<<-SQL, id)
@@ -71,7 +71,7 @@ Step 2:
     end
     ```
 - `SQLObject#insert`
-    - dynamically generates a SQL querry for inserting value into specific collumns
+    - **dynamically generates a SQL querry for inserting value into specific collumns**
     ```
     def insert
         col_names = (self.class.columns - [:id]).join(",")
@@ -92,7 +92,7 @@ Step 2:
     end
     ```
 - `Associatable#belongs_to(name, options)`
-    -   takes in the association name argument and an options `Hash` and creates a `BelongsToOptions` object based on the arguments passed in
+    -   **takes in the association name argument and an options `Hash` and creates a `BelongsToOptions` object based on the arguments passed in**
     ```
     def belongs_to(name, options = {})
         self.assoc_options[name] = BelongsToOptions.new(name, options)
