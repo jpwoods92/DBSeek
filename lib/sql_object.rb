@@ -45,7 +45,7 @@ class SQLObject
     parse_all(results)
   end
 
-  def self.parse_all(results)
+  def self.parse_all(array)
     results.map do |obj|
       self.new(obj)
     end

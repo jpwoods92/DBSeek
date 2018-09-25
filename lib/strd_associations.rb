@@ -56,7 +56,6 @@ module Associatable
   def assoc_options
     @assoc_options ||= {}
     @assoc_options
-    # Wait to implement this in Phase IVa. Modify `belongs_to`, too.
   end
 end
 

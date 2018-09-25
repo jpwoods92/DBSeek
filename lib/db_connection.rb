@@ -2,8 +2,8 @@ require 'sqlite3'
 
 PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 ROOT_FOLDER = File.join(File.dirname(__FILE__), '..')
-SQL_FILE = File.join(ROOT_FOLDER, 'your_sql_file_here')
-DB_FILE = File.join(ROOT_FOLDER, 'your_db_file_here') 
+SQL_FILE = File.join(ROOT_FOLDER, 'your_db_file_here.sql')
+DB_FILE = File.join(ROOT_FOLDER, 'your_db_file_here.db') 
 
 class DBConnection
   def self.open(db_file_name)
