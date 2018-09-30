@@ -121,7 +121,6 @@ class SQLObject
     set_vals = (self.class.columns - [:id]).map { |col| "#{col} = ?" }.join(",")
     id = "#{self.class.columns.first} = ?"
     vals = attribute_values.rotate
-    # debugger
     DBConnection.execute(<<-SQL, *vals)
       UPDATE
         #{self.class.table_name}
