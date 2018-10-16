@@ -25,7 +25,7 @@ Step 2:
 
 - ### `Searchable#where`
     -   **In a separate module, I defined a method that takes an argument in the form of a `String` or `Hash` and generates a sql querry based on those params.**
-```
+```ruby
     def where(params)
         if params.is_a?(Hash)
             keys = params.keys.map { |key| "#{key}= ?"}.join(" AND ")
@@ -43,7 +43,7 @@ Step 2:
         SQL
         self.parse_all(result)
     end
-```
+```ruby
 - ### `SQLObject::parse_all`
     -   **Iterates through an array of `Hash`es returned from a query and creates new instances of SQLObject out of them**
     ```
@@ -56,7 +56,7 @@ Step 2:
 
 - ### `SQLObject::find`
     -   **takes in an id parameter and returns a SQLObject with the given id**
-```
+```ruby
     def self.find(id)
         result = DBConnection.execute(<<-SQL, id)
             SELECT
@@ -72,7 +72,7 @@ Step 2:
 ```
 - ### `SQLObject#insert`
     - **dynamically generates a SQL querry for inserting value into specific collumns**
-```
+```ruby
     def insert
         col_names = (self.class.columns - [:id]).join(",")
         question_marks = []
@@ -93,7 +93,7 @@ Step 2:
 ```
 - ### `Associatable#belongs_to`
     -   **takes in the association name argument and an options `Hash` and creates a `BelongsToOptions` object based on the arguments passed in**
-```
+```ruby
     def belongs_to(name, options = {})
         self.assoc_options[name] = BelongsToOptions.new(name, options)
         define_method(name) do
