@@ -15,7 +15,7 @@ Step 2:
 - Inside the lib folder, open up the file `db_connection.rb`
 
 - Change the `String` value for lines 5 & 6 to the name of your db file.
-```
+```ruby
     SQL_FILE = File.join(ROOT_FOLDER, 'your_db_file_here.sql')
     DB_FILE = File.join(ROOT_FOLDER, 'your_db_file_here.db') 
 ```
@@ -43,10 +43,10 @@ Step 2:
         SQL
         self.parse_all(result)
     end
-```ruby
+```
 - ### `SQLObject::parse_all`
     -   **Iterates through an array of `Hash`es returned from a query and creates new instances of SQLObject out of them**
-    ```
+    ```ruby
     def self.parse_all(array)
         results.map do |obj|
             self.new(obj)
